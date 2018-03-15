@@ -50,7 +50,7 @@ class TestStudentLists(TestCase):
         with self.assertRaises(StudentError):
             test_class.remove_student('Test Student 3')
 
-            self.assertTrue('Test Student 3 not found in class')
+            self.assertNotIn('Test Student 3', self.test_class.ClassList)
 
     ## TODO write a test that removes a student from an empty list, and asserts a StudentError is raised
     def test_remove_student_in_empty_list(self):
@@ -58,7 +58,7 @@ class TestStudentLists(TestCase):
         with self.assertRaises(StudentError):
             test_class.remove_student('Test Student 3')
 
-            self.assertTrue('Test Student 3 not found in class')
+            self.assertNotIn('Test Student 3', self.test_class.ClassList)
 
     def test_enrollment_when_student_present(self):
         test_class = ClassList(2)
